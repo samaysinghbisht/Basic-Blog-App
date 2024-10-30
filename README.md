@@ -24,29 +24,28 @@ A basic blog application built using React and Node.js with Express. This projec
 
 ## How to Run
 
-### Using Docker
-To start the app locally, ensure you have Docker installed. Each service has its own `Dockerfile` for easy containerization.
+### Using Kubernetes:
+To start the app locally, ensure you have Kubernetes installed. Each service has its own `Dockerfile` for easy containerization.
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/samaysinghbisht/Basic-Blog-App.git
    cd Basic-Blog-App
+2. Install Ingress-Nginx Controller by following this documentation: [LINK](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start)
 
-2. Build each service by navigating to their repository, for example:
+3. Once that is done, We need to update our hosts configuration so that localhost requests get routed to **posts.com** otherwise we will get an error in our frontend application, so please update your **etc/hosts/** file and add this at the end of the file:
+   ```
+   127.0.0.1 posts.com
+4. Deploy the application in your kubernetes cluster by following below commands:
    ```bash
-   cd client
-   docker build -t <tag> .
-   docker run -p 3000:3000 <tag>
-   
-3. Perform above steps for each service, keeping in mind the port mapping:
-   ```bash
-   Posts --> -p 4000:4000
-   Comments --> -p 4001:4001
-   Query --> -p 4002:4002
-   Moderation --> -p 4003:4003
-   Event-Bus --> -p 4005:4005
+   kubectl create namespace blog
+   kubectl apply -f infra/k8s/
+5. Now navigate to **posts.com** in your browser and enjoy.
 
-### Using Docker-Compose:
-To start the app locally using docker-compose, build the images locally using the above commands and the run below command to start the app:
-   ```bash
-   docker compose up
+
+## Architecture Diagram of the application:
+
+![Architecture diagram of the application](image.png)
+
+## Routing rules within the application:
+![Routing Rules](image-1.png)
