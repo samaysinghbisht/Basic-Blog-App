@@ -45,7 +45,9 @@ To start the app locally, ensure you have Kubernetes installed. Each service has
 
 ## Architecture Diagram of the application:
 
-![Architecture diagram of the application](image.png)
+![architecture](https://github.com/user-attachments/assets/0936eba0-5b11-4eff-aea1-c8e70626e327)
 
 ## Routing rules within the application:
-![Routing Rules](image-1.png)
+
+![routes](https://github.com/user-attachments/assets/bb7f83bf-8da2-4ebe-9ec8-c6536a857748)
+
