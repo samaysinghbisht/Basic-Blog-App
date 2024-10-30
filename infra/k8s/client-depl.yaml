@@ -25,7 +25,6 @@ metadata:
   name: client-srv
   namespace: blog
 spec:
-  type: LoadBalancer
   selector:
     app: client
   ports:
